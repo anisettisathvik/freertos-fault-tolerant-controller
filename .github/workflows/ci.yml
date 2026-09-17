@@ -17,7 +17,7 @@ jobs:
       - name: Directed logic tests (ASan + UBSan)
         run: |
           make logic | tee logic.txt
-          grep -q "35 passed, 0 failed" logic.txt
+          grep -q "38 passed, 0 failed" logic.txt
       - name: Exhaustive state space exploration
         run: |
           make exhaustive | tee exh.txt
