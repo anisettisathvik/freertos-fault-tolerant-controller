@@ -1,0 +1,345 @@
+
+=== Fault-Tolerant Industrial Controller ===
+FreeRTOS on Cortex-M3, MPS2-AN385
+deterministic fault schedule, 26 s run
+
+[     2 ms] INIT       -> NORMAL      out=ON  faults=0x00 try=0
+[  3451 ms] NORMAL     -> FAULT       out=OFF faults=0x01 try=0
+[  3501 ms] FAULT      -> SAFE        out=OFF faults=0x01 try=0
+[  4501 ms] SAFE       -> RECOVERING  out=OFF faults=0x00 try=1
+[  4701 ms] RECOVERING -> NORMAL      out=ON  faults=0x00 try=0
+[  7001 ms] NORMAL     -> FAULT       out=OFF faults=0x06 try=0
+[  7101 ms] FAULT      -> SAFE        out=OFF faults=0x00 try=0
+[  8101 ms] SAFE       -> RECOVERING  out=OFF faults=0x00 try=1
+[  8301 ms] RECOVERING -> NORMAL      out=ON  faults=0x00 try=0
+[ 10001 ms] NORMAL     -> FAULT       out=OFF faults=0x06 try=0
+[ 10101 ms] FAULT      -> SAFE        out=OFF faults=0x00 try=0
+[ 11101 ms] SAFE       -> RECOVERING  out=OFF faults=0x00 try=1
+[ 11301 ms] RECOVERING -> NORMAL      out=ON  faults=0x00 try=0
+[ 14901 ms] NORMAL     -> FAULT       out=OFF faults=0x08 try=0
+[ 14901 ms] FAULT      -> SAFE        out=OFF faults=0x08 try=0
+[ 15901 ms] SAFE       -> RECOVERING  out=OFF faults=0x08 try=1
+[ 15901 ms] RECOVERING -> FAULT       out=OFF faults=0x08 try=1
+[ 16001 ms] FAULT      -> SAFE        out=OFF faults=0x08 try=1
+[ 17001 ms] SAFE       -> RECOVERING  out=OFF faults=0x00 try=2
+[ 17201 ms] RECOVERING -> NORMAL      out=ON  faults=0x00 try=0
+[ 19001 ms] NORMAL     -> FAULT       out=OFF faults=0x10 try=0
+[ 19101 ms] FAULT      -> SAFE        out=OFF faults=0x10 try=0
+[ 20101 ms] SAFE       -> RECOVERING  out=OFF faults=0x10 try=1
+[ 20101 ms] RECOVERING -> FAULT       out=OFF faults=0x10 try=1
+[ 20201 ms] FAULT      -> SAFE        out=OFF faults=0x10 try=1
+[ 21201 ms] SAFE       -> RECOVERING  out=OFF faults=0x10 try=2
+[ 21201 ms] RECOVERING -> FAULT       out=OFF faults=0x10 try=2
+[ 21301 ms] FAULT      -> SAFE        out=OFF faults=0x10 try=2
+[ 22301 ms] SAFE       -> RECOVERING  out=OFF faults=0x10 try=3
+[ 22301 ms] RECOVERING -> FAULT       out=OFF faults=0x10 try=3
+[ 22401 ms] FAULT      -> SAFE        out=OFF faults=0x30 try=3
+[ 23401 ms] SAFE       -> LATCHED     out=OFF faults=0x30 try=3
+[watchdog] software timer expired - safe state forced
+[ 23900 ms] WATCHDOG EXPIRED after 1600 ms without a kick
+
+=== run summary ===
+  control steps ........ 581
+  fault events ......... 9
+  recoveries ........... 4
+  latch events ......... 1
+  watchdog expiries .... 2
+  final state .......... LATCHED (output OFF)
+
+=== timing, microseconds ===
+  task loop body        min      avg      max    count
+  Acquisition             1       45     2493      291
+  Processing              6       30     1966      581
+  HealthMonitor           2       22      285      291
+  ctrl_step()             1        3      176      581
+
+=== event latencies ===
+  worst fault-to-output-off .... 105 us
+  recovery time (fault->normal)  min 1250 ms  avg 1287 ms  max 1300 ms  n=4
+  watchdog deadline .............. 1500 ms configured
+  watchdog detection latency ..... 1600 ms
+
+=== stack headroom, words remaining ===
+  Report task ........ 558 of 768
+
+Note: these are QEMU cycle counts, not silicon. Relative costs
+and the control-flow latencies are meaningful; absolute numbers
+need a real part.
+
+RUN COMPLETE
+
+=== Fault-Tolerant Industrial Controller ===
+FreeRTOS on Cortex-M3, MPS2-AN385
+deterministic fault schedule, 26 s run
+
+[     1 ms] INIT       -> NORMAL      out=ON  faults=0x00 try=0
+[  3451 ms] NORMAL     -> FAULT       out=OFF faults=0x01 try=0
+[  3501 ms] FAULT      -> SAFE        out=OFF faults=0x01 try=0
+[  4501 ms] SAFE       -> RECOVERING  out=OFF faults=0x00 try=1
+[  4701 ms] RECOVERING -> NORMAL      out=ON  faults=0x00 try=0
+[  7001 ms] NORMAL     -> FAULT       out=OFF faults=0x06 try=0
+[  7101 ms] FAULT      -> SAFE        out=OFF faults=0x00 try=0
+[  8101 ms] SAFE       -> RECOVERING  out=OFF faults=0x00 try=1
+[  8301 ms] RECOVERING -> NORMAL      out=ON  faults=0x00 try=0
+[ 10001 ms] NORMAL     -> FAULT       out=OFF faults=0x06 try=0
+[ 10101 ms] FAULT      -> SAFE        out=OFF faults=0x00 try=0
+[ 11101 ms] SAFE       -> RECOVERING  out=OFF faults=0x00 try=1
+[ 11301 ms] RECOVERING -> NORMAL      out=ON  faults=0x00 try=0
+[ 14901 ms] NORMAL     -> FAULT       out=OFF faults=0x08 try=0
+[ 14901 ms] FAULT      -> SAFE        out=OFF faults=0x08 try=0
+[ 15901 ms] SAFE       -> RECOVERING  out=OFF faults=0x08 try=1
+[ 15901 ms] RECOVERING -> FAULT       out=OFF faults=0x08 try=1
+[ 16001 ms] FAULT      -> SAFE        out=OFF faults=0x08 try=1
+[ 17001 ms] SAFE       -> RECOVERING  out=OFF faults=0x00 try=2
+[ 17201 ms] RECOVERING -> NORMAL      out=ON  faults=0x00 try=0
+[ 19001 ms] NORMAL     -> FAULT       out=OFF faults=0x10 try=0
+[ 19101 ms] FAULT      -> SAFE        out=OFF faults=0x10 try=0
+[ 20101 ms] SAFE       -> RECOVERING  out=OFF faults=0x10 try=1
+[ 20101 ms] RECOVERING -> FAULT       out=OFF faults=0x10 try=1
+[ 20201 ms] FAULT      -> SAFE        out=OFF faults=0x10 try=1
+[ 21201 ms] SAFE       -> RECOVERING  out=OFF faults=0x10 try=2
+[ 21201 ms] RECOVERING -> FAULT       out=OFF faults=0x10 try=2
+[ 21301 ms] FAULT      -> SAFE        out=OFF faults=0x10 try=2
+[ 22301 ms] SAFE       -> RECOVERING  out=OFF faults=0x10 try=3
+[ 22301 ms] RECOVERING -> FAULT       out=OFF faults=0x10 try=3
+[ 22401 ms] FAULT      -> SAFE        out=OFF faults=0x30 try=3
+[ 23401 ms] SAFE       -> LATCHED     out=OFF faults=0x30 try=3
+[watchdog] software timer expired - safe state forced
+[ 23900 ms] WATCHDOG EXPIRED after 1600 ms without a kick
+
+=== run summary ===
+  control steps ........ 581
+  fault events ......... 9
+  recoveries ........... 4
+  latch events ......... 1
+  watchdog expiries .... 2
+  final state .......... LATCHED (output OFF)
+
+=== timing, microseconds ===
+  task loop body        min      avg      max    count
+  Acquisition             1       49     2563      291
+  Processing              6       33     2084      581
+  HealthMonitor           2       26      433      291
+  ctrl_step()             1        3      161      581
+
+=== event latencies ===
+  worst fault-to-output-off .... 155 us
+  recovery time (fault->normal)  min 1250 ms  avg 1287 ms  max 1300 ms  n=4
+  watchdog deadline .............. 1500 ms configured
+  watchdog detection latency ..... 1600 ms
+
+=== stack headroom, words remaining ===
+  Report task ........ 558 of 768
+
+Note: these are QEMU cycle counts, not silicon. Relative costs
+and the control-flow latencies are meaningful; absolute numbers
+need a real part.
+
+RUN COMPLETE
+
+=== Fault-Tolerant Industrial Controller ===
+FreeRTOS on Cortex-M3, MPS2-AN385
+deterministic fault schedule, 26 s run
+
+[     1 ms] INIT       -> NORMAL      out=ON  faults=0x00 try=0
+[  3451 ms] NORMAL     -> FAULT       out=OFF faults=0x01 try=0
+[  3501 ms] FAULT      -> SAFE        out=OFF faults=0x01 try=0
+[  4501 ms] SAFE       -> RECOVERING  out=OFF faults=0x00 try=1
+[  4701 ms] RECOVERING -> NORMAL      out=ON  faults=0x00 try=0
+[  7001 ms] NORMAL     -> FAULT       out=OFF faults=0x06 try=0
+[  7101 ms] FAULT      -> SAFE        out=OFF faults=0x00 try=0
+[  8101 ms] SAFE       -> RECOVERING  out=OFF faults=0x00 try=1
+[  8301 ms] RECOVERING -> NORMAL      out=ON  faults=0x00 try=0
+[ 10001 ms] NORMAL     -> FAULT       out=OFF faults=0x06 try=0
+[ 10101 ms] FAULT      -> SAFE        out=OFF faults=0x00 try=0
+[ 11101 ms] SAFE       -> RECOVERING  out=OFF faults=0x00 try=1
+[ 11301 ms] RECOVERING -> NORMAL      out=ON  faults=0x00 try=0
+[ 14901 ms] NORMAL     -> FAULT       out=OFF faults=0x08 try=0
+[ 14901 ms] FAULT      -> SAFE        out=OFF faults=0x08 try=0
+[ 15901 ms] SAFE       -> RECOVERING  out=OFF faults=0x08 try=1
+[ 15901 ms] RECOVERING -> FAULT       out=OFF faults=0x08 try=1
+[ 16001 ms] FAULT      -> SAFE        out=OFF faults=0x08 try=1
+[ 17001 ms] SAFE       -> RECOVERING  out=OFF faults=0x00 try=2
+[ 17201 ms] RECOVERING -> NORMAL      out=ON  faults=0x00 try=0
+[ 19001 ms] NORMAL     -> FAULT       out=OFF faults=0x10 try=0
+[ 19101 ms] FAULT      -> SAFE        out=OFF faults=0x10 try=0
+[ 20101 ms] SAFE       -> RECOVERING  out=OFF faults=0x10 try=1
+[ 20101 ms] RECOVERING -> FAULT       out=OFF faults=0x10 try=1
+[ 20201 ms] FAULT      -> SAFE        out=OFF faults=0x10 try=1
+[ 21201 ms] SAFE       -> RECOVERING  out=OFF faults=0x10 try=2
+[ 21201 ms] RECOVERING -> FAULT       out=OFF faults=0x10 try=2
+[ 21301 ms] FAULT      -> SAFE        out=OFF faults=0x10 try=2
+[ 22301 ms] SAFE       -> RECOVERING  out=OFF faults=0x10 try=3
+[ 22301 ms] RECOVERING -> FAULT       out=OFF faults=0x10 try=3
+[ 22401 ms] FAULT      -> SAFE        out=OFF faults=0x30 try=3
+[ 23401 ms] SAFE       -> LATCHED     out=OFF faults=0x30 try=3
+[watchdog] software timer expired - safe state forced
+[ 23900 ms] WATCHDOG EXPIRED after 1600 ms without a kick
+
+=== run summary ===
+  control steps ........ 581
+  fault events ......... 9
+  recoveries ........... 4
+  latch events ......... 1
+  watchdog expiries .... 2
+  final state .......... LATCHED (output OFF)
+
+=== timing, microseconds ===
+  task loop body        min      avg      max    count
+  Acquisition             1       41     2249      291
+  Processing              6       28     1860      581
+  HealthMonitor           0       16      199      291
+  ctrl_step()             1        2      176      581
+
+=== event latencies ===
+  worst fault-to-output-off .... 116 us
+  recovery time (fault->normal)  min 1250 ms  avg 1287 ms  max 1300 ms  n=4
+  watchdog deadline .............. 1500 ms configured
+  watchdog detection latency ..... 1600 ms
+
+=== stack headroom, words remaining ===
+  Report task ........ 558 of 768
+
+Note: these are QEMU cycle counts, not silicon. Relative costs
+and the control-flow latencies are meaningful; absolute numbers
+need a real part.
+
+RUN COMPLETE
+
+=== Fault-Tolerant Industrial Controller ===
+FreeRTOS on Cortex-M3, MPS2-AN385
+deterministic fault schedule, 26 s run
+
+[     2 ms] INIT       -> NORMAL      out=ON  faults=0x00 try=0
+[  3450 ms] NORMAL     -> FAULT       out=OFF faults=0x01 try=0
+[  3500 ms] FAULT      -> SAFE        out=OFF faults=0x01 try=0
+[  4500 ms] SAFE       -> RECOVERING  out=OFF faults=0x00 try=1
+[  4700 ms] RECOVERING -> NORMAL      out=ON  faults=0x00 try=0
+[  7000 ms] NORMAL     -> FAULT       out=OFF faults=0x06 try=0
+[  7100 ms] FAULT      -> SAFE        out=OFF faults=0x00 try=0
+[  8100 ms] SAFE       -> RECOVERING  out=OFF faults=0x00 try=1
+[  8300 ms] RECOVERING -> NORMAL      out=ON  faults=0x00 try=0
+[ 10000 ms] NORMAL     -> FAULT       out=OFF faults=0x06 try=0
+[ 10100 ms] FAULT      -> SAFE        out=OFF faults=0x00 try=0
+[ 11100 ms] SAFE       -> RECOVERING  out=OFF faults=0x00 try=1
+[ 11300 ms] RECOVERING -> NORMAL      out=ON  faults=0x00 try=0
+[ 14900 ms] NORMAL     -> FAULT       out=OFF faults=0x08 try=0
+[ 14900 ms] FAULT      -> SAFE        out=OFF faults=0x08 try=0
+[ 15900 ms] SAFE       -> RECOVERING  out=OFF faults=0x08 try=1
+[ 15900 ms] RECOVERING -> FAULT       out=OFF faults=0x08 try=1
+[ 16000 ms] FAULT      -> SAFE        out=OFF faults=0x08 try=1
+[ 17000 ms] SAFE       -> RECOVERING  out=OFF faults=0x00 try=2
+[ 17200 ms] RECOVERING -> NORMAL      out=ON  faults=0x00 try=0
+[ 19000 ms] NORMAL     -> FAULT       out=OFF faults=0x10 try=0
+[ 19100 ms] FAULT      -> SAFE        out=OFF faults=0x10 try=0
+[ 20100 ms] SAFE       -> RECOVERING  out=OFF faults=0x10 try=1
+[ 20100 ms] RECOVERING -> FAULT       out=OFF faults=0x10 try=1
+[ 20200 ms] FAULT      -> SAFE        out=OFF faults=0x10 try=1
+[ 21200 ms] SAFE       -> RECOVERING  out=OFF faults=0x10 try=2
+[ 21200 ms] RECOVERING -> FAULT       out=OFF faults=0x10 try=2
+[ 21300 ms] FAULT      -> SAFE        out=OFF faults=0x10 try=2
+[ 22300 ms] SAFE       -> RECOVERING  out=OFF faults=0x10 try=3
+[ 22300 ms] RECOVERING -> FAULT       out=OFF faults=0x10 try=3
+[ 22400 ms] FAULT      -> SAFE        out=OFF faults=0x30 try=3
+[ 23400 ms] SAFE       -> LATCHED     out=OFF faults=0x30 try=3
+[watchdog] software timer expired - safe state forced
+[ 23900 ms] WATCHDOG EXPIRED after 1600 ms without a kick
+
+=== run summary ===
+  control steps ........ 581
+  fault events ......... 9
+  recoveries ........... 4
+  latch events ......... 1
+  watchdog expiries .... 2
+  final state .......... LATCHED (output OFF)
+
+=== timing, microseconds ===
+  task loop body        min      avg      max    count
+  Acquisition             1       48     3490      291
+  Processing              5       30     2047      581
+  HealthMonitor           0       20      234      291
+  ctrl_step()             1        3      190      581
+
+=== event latencies ===
+  worst fault-to-output-off .... 109 us
+  recovery time (fault->normal)  min 1250 ms  avg 1287 ms  max 1300 ms  n=4
+  watchdog deadline .............. 1500 ms configured
+  watchdog detection latency ..... 1600 ms
+
+=== stack headroom, words remaining ===
+  Report task ........ 558 of 768
+
+Note: these are QEMU cycle counts, not silicon. Relative costs
+and the control-flow latencies are meaningful; absolute numbers
+need a real part.
+
+RUN COMPLETE
+
+=== Fault-Tolerant Industrial Controller ===
+FreeRTOS on Cortex-M3, MPS2-AN385
+deterministic fault schedule, 26 s run
+
+[     1 ms] INIT       -> NORMAL      out=ON  faults=0x00 try=0
+[  3451 ms] NORMAL     -> FAULT       out=OFF faults=0x01 try=0
+[  3501 ms] FAULT      -> SAFE        out=OFF faults=0x01 try=0
+[  4501 ms] SAFE       -> RECOVERING  out=OFF faults=0x00 try=1
+[  4701 ms] RECOVERING -> NORMAL      out=ON  faults=0x00 try=0
+[  7001 ms] NORMAL     -> FAULT       out=OFF faults=0x06 try=0
+[  7101 ms] FAULT      -> SAFE        out=OFF faults=0x00 try=0
+[  8101 ms] SAFE       -> RECOVERING  out=OFF faults=0x00 try=1
+[  8301 ms] RECOVERING -> NORMAL      out=ON  faults=0x00 try=0
+[ 10001 ms] NORMAL     -> FAULT       out=OFF faults=0x06 try=0
+[ 10101 ms] FAULT      -> SAFE        out=OFF faults=0x00 try=0
+[ 11101 ms] SAFE       -> RECOVERING  out=OFF faults=0x00 try=1
+[ 11301 ms] RECOVERING -> NORMAL      out=ON  faults=0x00 try=0
+[ 14901 ms] NORMAL     -> FAULT       out=OFF faults=0x08 try=0
+[ 14901 ms] FAULT      -> SAFE        out=OFF faults=0x08 try=0
+[ 15901 ms] SAFE       -> RECOVERING  out=OFF faults=0x08 try=1
+[ 15901 ms] RECOVERING -> FAULT       out=OFF faults=0x08 try=1
+[ 16001 ms] FAULT      -> SAFE        out=OFF faults=0x08 try=1
+[ 17001 ms] SAFE       -> RECOVERING  out=OFF faults=0x00 try=2
+[ 17201 ms] RECOVERING -> NORMAL      out=ON  faults=0x00 try=0
+[ 19001 ms] NORMAL     -> FAULT       out=OFF faults=0x10 try=0
+[ 19101 ms] FAULT      -> SAFE        out=OFF faults=0x10 try=0
+[ 20101 ms] SAFE       -> RECOVERING  out=OFF faults=0x10 try=1
+[ 20101 ms] RECOVERING -> FAULT       out=OFF faults=0x10 try=1
+[ 20201 ms] FAULT      -> SAFE        out=OFF faults=0x10 try=1
+[ 21201 ms] SAFE       -> RECOVERING  out=OFF faults=0x10 try=2
+[ 21201 ms] RECOVERING -> FAULT       out=OFF faults=0x10 try=2
+[ 21301 ms] FAULT      -> SAFE        out=OFF faults=0x10 try=2
+[ 22301 ms] SAFE       -> RECOVERING  out=OFF faults=0x10 try=3
+[ 22301 ms] RECOVERING -> FAULT       out=OFF faults=0x10 try=3
+[ 22401 ms] FAULT      -> SAFE        out=OFF faults=0x30 try=3
+[ 23401 ms] SAFE       -> LATCHED     out=OFF faults=0x30 try=3
+[watchdog] software timer expired - safe state forced
+[ 23900 ms] WATCHDOG EXPIRED after 1600 ms without a kick
+
+=== run summary ===
+  control steps ........ 581
+  fault events ......... 9
+  recoveries ........... 4
+  latch events ......... 1
+  watchdog expiries .... 2
+  final state .......... LATCHED (output OFF)
+
+=== timing, microseconds ===
+  task loop body        min      avg      max    count
+  Acquisition             0       43     2351      291
+  Processing              6       30     1954      581
+  HealthMonitor           2       19      203      291
+  ctrl_step()             1        3      182      581
+
+=== event latencies ===
+  worst fault-to-output-off .... 150 us
+  recovery time (fault->normal)  min 1250 ms  avg 1287 ms  max 1300 ms  n=4
+  watchdog deadline .............. 1500 ms configured
+  watchdog detection latency ..... 1600 ms
+
+=== stack headroom, words remaining ===
+  Report task ........ 558 of 768
+
+Note: these are QEMU cycle counts, not silicon. Relative costs
+and the control-flow latencies are meaningful; absolute numbers
+need a real part.
+
+RUN COMPLETE

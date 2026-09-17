@@ -1,0 +1,23 @@
+# Build output
+build/
+*.o
+*.elf
+*.map
+
+# Third-party kernel, fetched by SETUP.md
+freertos/
+
+# Coverage
+*.gcov
+*.gcda
+*.gcno
+
+# Run logs (regenerate with `make demo`)
+logs/*.log
+!logs/.gitkeep
+
+# Editors / OS
+.vscode/
+.idea/
+*.swp
+.DS_Store
