@@ -220,5 +220,10 @@ edits. This is why branch coverage reads 98.82% rather than 100%.
 having no external use; it is called from `app_main.c`, which cppcheck does not
 analyse in the same pass. Making it static would break the firmware build.
 
-**CI has not executed.** The workflow in `.github/workflows/ci.yml` is
-syntax-valid but has never run, as this repository had no remote until now.
+**CI runs on every push.** The workflow in `.github/workflows/ci.yml` runs the
+full suite on a clean Ubuntu runner: directed tests under sanitizers, the
+exhaustive state-space exploration with all eight properties, a coverage gate
+that fails the build below 100% lines, static analysis, the Cortex-M3 build,
+the QEMU fault escalation, and a GDB session against the target. It passes on a
+runner that has never seen the development machine, so the results above are
+independently reproducible rather than self-reported.
