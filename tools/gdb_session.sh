@@ -35,6 +35,7 @@ timeout 60 gdb-multiarch -q -batch \
   -ex "print in->sensor_fresh" \
   -ex "print in->now_ms" \
   -ex "echo \n--- run the transition and re-read the state ---\n" \
+  -ex "delete 1" \
   -ex "finish" \
   -ex "print g_out.state" \
   -ex "print g_out.output_enabled" \
