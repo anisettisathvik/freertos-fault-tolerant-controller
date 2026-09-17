@@ -15,7 +15,7 @@ QEMU's MPS2-AN385 Cortex-M3 model.
 ## Repository layout
 
 ```
-mb-controller/
+freertos-fault-tolerant-controller/
 ├── src/
 │   ├── control_logic.h       states, fault flags, tuning constants
 │   ├── control_logic.c       fault detection and transition logic (no RTOS)
